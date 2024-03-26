@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using System;
 using SRF;
@@ -31,7 +31,6 @@ namespace SRDebugger.UI.Controls.Data
 
         protected override void OnBind(string propertyName, Type t)
         {
-            Debug.Log($"On Bind property={propertyName}");
             base.OnBind(propertyName, t);
             Title.text = propertyName;
         }
