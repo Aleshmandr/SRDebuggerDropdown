@@ -1,9 +1,10 @@
 using System;
 
-namespace SRDebugger {
-    public class SRDropDownData {
-
-        public event Action<int> SelectionChanged; 
+namespace SRDebugger
+{
+    public class SRDropDownData
+    {
+        public event Action<int> SelectionChanged;
         public readonly object[] Options;
         private int _selectionIndex;
 
@@ -12,13 +13,19 @@ namespace SRDebugger {
             get => _selectionIndex;
             set
             {
-                if(_selectionIndex == value)
+                if (_selectionIndex == value)
                 {
                     return;
                 }
+
                 _selectionIndex = value;
                 SelectionChanged?.Invoke(_selectionIndex);
             }
+        }
+
+        public void SetValueWithoutNotify(int value)
+        {
+            _selectionIndex = value;
         }
 
         public SRDropDownData(int selectionIndex, object[] options)
